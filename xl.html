@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js" ></script>
+	<body>      
+	    <video id="myvideo" width="80%" height="80%" controls="controls" poster="img/cars.png">
+	    	<source src="https://docs.qingque.cn/yfile/api/stream/preview?blobStoreKey=transcodedocs_yfile_6d935de8-1a46-4a14-a50b-2816f857e562_eZQDULKD4DwxRMWANmJ2_RDNv&fileName=g.mp4&mimeType=application/octet-stream&docId=eZQDULKD4DwxRMWANmJ2_RDNv&anonToken=2c10cef3cc994ecab4afd9b1febd7125&identityId=278c2qJWRP9" type="video/mp4">
+	    </video>
+	    <script type="text/javascript">
+	        var video = document.getElementById('myvideo');
+	        var currentTime = localStorage.getItem("currentTime");
+	        console.log(currentTime);
+	        video.addEventListener("loadedmetadata",function(){
+	            this.currentTime = currentTime;
+	        });
+	        video.addEventListener("timeupdate",function(){
+	            var currentTime = Math.floor(video.currentTime);
+	            localStorage.setItem("currentTime",currentTime);
+	            console.log(localStorage.getItem("currentTime"));
+	        });
+	    </script> 
+	</body>
+</html>
